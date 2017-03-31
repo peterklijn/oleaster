@@ -230,6 +230,30 @@ public class StaticRunnerSupport {
 		suiteBuilder.afterEach(block);
 	}
 
+	public static class describe {
+		private describe() {}
+
+		public static void only(String text, Invokable block) {
+			suiteBuilder.fdescribe(text, block);
+		}
+
+		public static void skip(String text, PendingInvokable block) {
+			suiteBuilder.xdescribe(text, block);
+		}
+	}
+
+	public static class it {
+		private it() {}
+
+		public static void only(String text, Invokable block) {
+			suiteBuilder.fit(text, block);
+		}
+
+		public static void skip(String text, Invokable block) {
+			suiteBuilder.xit(text);
+		}
+	}
+
 
 	private static void failIfNoSuiteBuilderAvailable(String methodName) {
 		if (suiteBuilder == null) {

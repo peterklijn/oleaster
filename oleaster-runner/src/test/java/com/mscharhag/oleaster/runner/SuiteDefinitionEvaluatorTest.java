@@ -206,6 +206,11 @@ public class SuiteDefinitionEvaluatorTest {
 						xit(IT_FOUR, () -> fail("does not run"));
 						it(IT_FIVE);
 					});
+					describe.only("", () -> {
+						it.only("", () -> assertTrue(true));
+						it("", () -> fail(""));
+						it.skip("", () -> fail(""));
+					});
 				}), sb);
 			});
 
