@@ -35,5 +35,15 @@ public class FocusedSpecTest {{
         fail("fail");
       });
     });
+
+    describe("normal describe", () -> {
+      fit("is focused and will run", () -> {
+        assertTrue(true);
+      });
+
+      it("is not a focused test and will not run", () -> {
+        fail("fail");
+      });
+    });
   });
 }}
